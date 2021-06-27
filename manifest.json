@@ -1,0 +1,36 @@
+{
+    "manifest_version": 2,
+    "name": "TeacherPal Attendee",
+    "version": "1.0.0",
+    "description": "Seamless interaction with instructors in online classes",
+    "icons":{
+        "128": "icon128.png",
+        "48": "icon48.png",
+        "16": "icon16.png"
+    },
+    "page_action":{
+        "default_icon": "icon16.png",
+        "default_popup": "popup.html",
+        "default_title": "TeacherPal Attendee"
+    },
+    "background":{
+        "scripts": ["eventPage.js"],
+        "persistent": false
+    },
+    "content_scripts":[
+        {
+            "matches": ["https://meet.google.com/*"],
+            "js": ["jquery-3.6.0.min.js","content.js"],
+            "css": ["content.css"]
+        }
+    ],
+    "permissions":[
+        "tabs",
+        "notifications",
+        "https://meet.google.com/*",
+        "storage","identity", "identity.email",
+        "http://192.168.137.67:8000/*",
+        "http://localhost:8000/*",
+        "https://www.gstatic.com/*"
+    ]
+}
